@@ -1,95 +1,114 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Entradas con Imágenes</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f2f2f2;
-        }
+<meta charset="UTF-8">
+<title>Entradas con Panel</title>
 
-        header {
-            background: #222;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f2f2f2;
+}
 
-        .contenedor {
-            max-width: 1200px;
-            margin: auto;
-            padding: 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-        }
+header {
+    background: #222;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
 
-        .entrada {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            display: flex;
-            flex-direction: column;
-        }
+.contenedor {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
 
-        .entrada img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-        }
+.entrada {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,.1);
+}
 
-        .contenido {
-            padding: 15px;
-            flex: 1;
-        }
+.entrada img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
 
-        .categoria {
-            font-size: 12px;
-            color: white;
-            background: #007bff;
-            display: inline-block;
-            padding: 4px 8px;
-            border-radius: 5px;
-            margin-bottom: 8px;
-        }
+.contenido {
+    padding: 15px;
+}
 
-        .entrada h3 {
-            margin: 10px 0 5px;
-        }
+.categoria {
+    background: #007bff;
+    color: white;
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 5px;
+}
 
-        .fecha {
-            font-size: 12px;
-            color: #777;
-        }
+.fecha {
+    font-size: 12px;
+    color: #777;
+}
 
-        .entrada p {
-            font-size: 14px;
-            color: #444;
-        }
+.boton {
+    display: block;
+    margin: 15px;
+    padding: 10px;
+    background: #007bff;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
-        .boton {
-            margin: 15px;
-            padding: 10px;
-            text-align: center;
-            background: #007bff;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-        }
+/* ===== MODAL ===== */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.6);
+    justify-content: center;
+    align-items: center;
+}
 
-        .boton:hover {
-            background: #0056b3;
-        }
-    </style>
+.modal-contenido {
+    background: white;
+    width: 90%;
+    max-width: 700px;
+    border-radius: 10px;
+    overflow: auto;
+    max-height: 90vh;
+}
+
+.modal-contenido img {
+    width: 100%;
+}
+
+.modal-texto {
+    padding: 20px;
+}
+
+.cerrar {
+    background: #dc3545;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+</style>
 </head>
+
 <body>
 
 <header>
-    <h1>Listado de Entradas Complejas</h1>
-    <p>Editables desde el HTML</p>
+    <h1>Entradas con Panel</h1>
 </header>
 
 <div class="contenedor">
@@ -101,50 +120,65 @@
             <span class="categoria">Tecnología</span>
             <h3>Entrada 1</h3>
             <div class="fecha">20 Enero 2026</div>
-            <p>
-                Esta es una descripción más larga donde puedes explicar el contenido
-                de la entrada con más detalle.
-            </p>
+            <p>Resumen corto de la entrada.</p>
         </div>
-        <a href="#" class="boton">Leer más</a>
+        <div class="boton" onclick="abrirModal('modal1')">Leer más</div>
     </div>
 
+    <!-- ===== ENTRADA 2 ===== -->
     <div class="entrada">
         <img src="https://picsum.photos/600/400?2">
         <div class="contenido">
             <span class="categoria">Videojuegos</span>
             <h3>Entrada 2</h3>
             <div class="fecha">19 Enero 2026</div>
-            <p>Texto editable de la entrada número 2.</p>
+            <p>Resumen corto de la entrada.</p>
         </div>
-        <a href="#" class="boton">Ver detalles</a>
+        <div class="boton" onclick="abrirModal('modal2')">Leer más</div>
     </div>
-
-    <div class="entrada">
-        <img src="https://picsum.photos/600/400?3">
-        <div class="contenido">
-            <span class="categoria">Libros</span>
-            <h3>Entrada 3</h3>
-            <div class="fecha">18 Enero 2026</div>
-            <p>Descripción editable directamente en el HTML.</p>
-        </div>
-        <a href="#" class="boton">Más info</a>
-    </div>
-
-    <!-- ===== MÁS ENTRADAS (4 a 22) ===== -->
-    <!-- Solo cambia números, textos e imagen -->
-
-    <div class="entrada"><img src="https://picsum.photos/600/400?4"><div class="contenido"><span class="categoria">Películas</span><h3>Entrada 4</h3><div class="fecha">17 Enero 2026</div><p>Texto editable.</p></div><a class="boton" href="#">Leer</a></div>
-    <div class="entrada"><img src="https://picsum.photos/600/400?5"><div class="contenido"><span class="categoria">Tecnología</span><h3>Entrada 5</h3><div class="fecha">16 Enero 2026</div><p>Texto editable.</p></div><a class="boton" href="#">Leer</a></div>
-    <div class="entrada"><img src="https://picsum.photos/600/400?6"><div class="contenido"><span class="categoria">Libros</span><h3>Entrada 6</h3><div class="fecha">15 Enero 2026</div><p>Texto editable.</p></div><a class="boton" href="#">Leer</a></div>
-    <div class="entrada"><img src="https://picsum.photos/600/400?7"><div class="contenido"><span class="categoria">Videojuegos</span><h3>Entrada 7</h3><div class="fecha">14 Enero 2026</div><p>Texto editable.</p></div><a class="boton" href="#">Leer</a></div>
-    <div class="entrada"><img src="https://picsum.photos/600/400?8"><div class="contenido"><span class="categoria">Películas</span><h3>Entrada 8</h3><div class="fecha">13 Enero 2026</div><p>Texto editable.</p></div><a class="boton" href="#">Leer</a></div>
-    <div class="entrada"><img src="https://picsum.photos/600/400?9"><div class="contenido"><span class="categoria">Tecnología</span><h3>Entrada 9</h3><div class="fecha">12 Enero 2026</div><p>Texto editable.</p></div><a class="boton" href="#">Leer</a></div>
-    <div class="entrada"><img src="https://picsum.photos/600/400?10"><div class="contenido"><span class="categoria">Libros</span><h3>Entrada 10</h3><div class="fecha">11 Enero 2026</div><p>Texto editable.</p></div><a class="boton" href="#">Leer</a></div>
-
-    <!-- Puedes seguir duplicando hasta las que quieras -->
 
 </div>
+
+<!-- ===== PANEL ENTRADA 1 ===== -->
+<div class="modal" id="modal1">
+    <div class="modal-contenido">
+        <img src="https://picsum.photos/600/400?1">
+        <div class="modal-texto">
+            <h2>Entrada 1</h2>
+            <p>
+                Aquí va el contenido COMPLETO de la entrada 1.
+                Puedes escribir todo lo que quieras, párrafos largos,
+                listas, etc.
+            </p>
+        </div>
+        <div class="cerrar" onclick="cerrarModal('modal1')">Cerrar</div>
+    </div>
+</div>
+
+<!-- ===== PANEL ENTRADA 2 ===== -->
+<div class="modal" id="modal2">
+    <div class="modal-contenido">
+        <img src="https://picsum.photos/600/400?2">
+        <div class="modal-texto">
+            <h2>Entrada 2</h2>
+            <p>
+                Contenido completo de la entrada 2.
+                Totalmente editable desde el HTML.
+            </p>
+        </div>
+        <div class="cerrar" onclick="cerrarModal('modal2')">Cerrar</div>
+    </div>
+</div>
+
+<script>
+function abrirModal(id) {
+    document.getElementById(id).style.display = "flex";
+}
+
+function cerrarModal(id) {
+    document.getElementById(id).style.display = "none";
+}
+</script>
 
 </body>
 </html>
