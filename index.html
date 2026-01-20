@@ -108,7 +108,7 @@ header {
 <body>
 
 <header>
-    <h1>Entradas con Panel</h1>
+    <h1>Vitvisor</h1>
 </header>
 
 <div class="contenedor">
@@ -117,8 +117,9 @@ header {
     <div class="entrada">
         <img src="https://picsum.photos/600/400?1">
         <div class="contenido">
-            <span class="categoria">Tecnología</span>
-            <h3>Entrada 1</h3>
+            <span class="categoria">Bienvenida</span>
+            <span class="categoria">Todo</span>
+            <h3>Bienvenidos</h3>
             <div class="fecha">20 Enero 2026</div>
             <p>Resumen corto de la entrada.</p>
         </div>
@@ -136,7 +137,18 @@ header {
         </div>
         <div class="boton" onclick="abrirModal('modal2')">Leer más</div>
     </div>
-
+    
+<!-- ===== ENTRADA 3 ===== -->
+    <div class="entrada">
+        <img src="https://picsum.photos/600/400?2">
+        <div class="contenido">
+            <span class="categoria">Videojuegos</span>
+            <h3>Entrada 3</h3>
+            <div class="fecha">19 Enero 2026</div>
+            <p>Resumen corto de la entrada.</p>
+        </div>
+        <div class="boton" onclick="abrirModal('modal2')">Leer más</div>
+    </div>
 </div>
 
 <!-- ===== PANEL ENTRADA 1 ===== -->
@@ -164,6 +176,18 @@ header {
             <p>
                 aqui es lo que va a aparecer para ver todo lo que quieras sobre los videojuegos a de mas va a aparecer mas 
                 mas info de lo normal
+            </p>
+        </div>
+        <div class="cerrar" onclick="cerrarModal('modal2')">Cerrar</div>
+    </div>
+    <!-- ===== PANEL ENTRADA 3 ===== -->
+<div class="modal" id="modal2">
+    <div class="modal-contenido">
+        <img src="https://picsum.photos/600/400?2">
+        <div class="modal-texto">
+            <h2>Entrada 2</h2>
+            <p>
+                esrte es el contenido que se ve que funciona de la entrada 3
             </p>
         </div>
         <div class="cerrar" onclick="cerrarModal('modal2')">Cerrar</div>
